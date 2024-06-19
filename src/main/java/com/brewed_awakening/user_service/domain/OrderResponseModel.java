@@ -1,9 +1,19 @@
 package com.brewed_awakening.user_service.domain;
 
+import java.util.List;
+
 public class OrderResponseModel {
     private String orderNumber;
     private String userId;
-    private String product;
+    private List<Long> productIds;
+
+    public OrderResponseModel(){}
+
+    public OrderResponseModel(String orderNumber, String userId, List<Long> productIds) {
+        this.orderNumber = orderNumber;
+        this.userId = userId;
+        this.productIds = productIds;
+    }
 
     public String getOrderNumber() {
         return orderNumber;
@@ -21,11 +31,11 @@ public class OrderResponseModel {
         this.userId = userId;
     }
 
-    public String getProduct() {
-        return product;
+    public List<Long> getProductIds() {
+        return productIds;
     }
 
-    public void setProduct(String product) {
-        this.product = product;
+    public void setProductIds(List<Long> productIds) {
+        this.productIds = productIds;
     }
 }
