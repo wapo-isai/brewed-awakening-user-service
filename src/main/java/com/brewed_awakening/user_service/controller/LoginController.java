@@ -15,8 +15,10 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "*")
 public class LoginController {
     @Autowired
     private final UserService userService;
@@ -40,6 +42,15 @@ public class LoginController {
         return ResponseEntity.status(HttpStatus.CREATED).body(returnValue);
     }
 
+    @GetMapping("/get-user/{username}")
+    public ResponseEntity<String> getUserId(@PathVariable("username") String username) {
+
+        UserDto createdUserDetails = userService.getUserByUsername(username);
+
+        UserResponseModel returnValue = new ModelMapper().map(createdUserDetails, UserResponseModel.class);
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(returnValue.getUserId());
+    }
 
     @GetMapping("/{userId}")
     @PostAuthorize("principal == returnObject.body.userId")
