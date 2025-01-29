@@ -10,7 +10,7 @@ jib {
 		image = 'eclipse-temurin:17-jre'
 	}
 	to {
-		image = 'wapinho2016/user-service:latest'
+		image = 'user-service:latest'
 	}
 	container {
 		ports = ['8082']
