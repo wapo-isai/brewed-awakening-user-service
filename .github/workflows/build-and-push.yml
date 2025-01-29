@@ -38,5 +38,5 @@ jobs:
 
       - name: Push Docker image to DockerHub
         run: |
-          docker tag user-service:latest ${{ secrets.DOCKER_USERNAME }}/user-service:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/user-service:latest
+          docker tag user-service:latest ${{ secrets.DOCKER_USERNAME_LOWER }}/user-service:latest
+          docker push ${{ secrets.DOCKER_USERNAME_LOWER }}/user-service:latest
